@@ -1,0 +1,3 @@
+viam-sdk
+ouster-sdk
+open3d
