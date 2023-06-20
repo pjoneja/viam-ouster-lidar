@@ -1,7 +1,7 @@
 <img width="100" alt="ouster-os1-rev7" src="https://github.com/pjoneja/viam-ouster-lidar/assets/6338447/ebe63242-9824-47ef-82b9-01cfbd476925">
 
 # viam-ouster-lidar
-A demo integrating Ouster lidar as a custom component in [Viam](https://www.viam.com). My aim is to see a 3D point cloud and 2D image captured by an Ouster lidar sensor streaming data to Viam's app. This demo is written in Python using the [viam-sdk](https://docs.viam.com/program/sdks/) and [ouster-sdk](https://ouster.com/developers/ouster-sdk/).
+A demo integrating Ouster lidar as a custom component in [Viam](https://www.viam.com). My aim is to see a 3D point cloud and 2D image captured by an Ouster lidar sensor streaming to Viam's app. This demo is written in Python using the [viam-sdk](https://docs.viam.com/program/sdks/) and [ouster-sdk](https://ouster.com/developers/ouster-sdk/).
 
 <img width="1312" alt="Screen Shot 2023-06-20 at 5 13 19 AM 1" src="https://github.com/pjoneja/viam-ouster-lidar/assets/6338447/658fb58c-1830-4867-bf29-7428cd8166d1">
 
@@ -94,6 +94,7 @@ Check the 'Control' tab on app.viam.com to see the images obtained from the mock
 
 # TODOs
 - Fix the pcd MIME type to correctly send 3D point clouds
+- What belongs in the driver.py vs model.py? Why are they different?
 - Figure out how to use the component config attributes to get the sensor hostname and other sensor-specific values.
 - Automatically configure the lidar sensor on startup. Check that the sensor is running and the robot is receiving data.
 
