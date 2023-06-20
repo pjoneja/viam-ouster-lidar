@@ -1,7 +1,7 @@
 <img width="100" alt="ouster-os1-rev7" src="https://github.com/pjoneja/viam-ouster-lidar/assets/6338447/ebe63242-9824-47ef-82b9-01cfbd476925">
 
 # viam-ouster-lidar
-A demo integrating Ouster lidar as a custom component in Viam. This repo assumes you are already familiar with [Viam](https://www.viam.com). 
+A demo integrating Ouster lidar as a custom component in [Viam](https://www.viam.com). This demo is written in Python using the [viam-sdk](https://docs.viam.com/program/sdks/) and [ouster-sdk](https://ouster.com/developers/ouster-sdk/).
 
 <img width="1312" alt="Screen Shot 2023-06-20 at 5 13 19 AM 1" src="https://github.com/pjoneja/viam-ouster-lidar/assets/6338447/658fb58c-1830-4867-bf29-7428cd8166d1">
 
