@@ -18,7 +18,7 @@ python3 -m pip install requirements.txt
 ```
 
 ## Testing
-To test my work outside of Viam's app, I run `server.py` as a standalone gRPC server. At the same time, I separately run the client in `test/connect.py` to check that the outputs. This part works great!
+To test my work outside of Viam's app, I run `server.py` as a standalone gRPC server. At the same time, I separately run the client in `test/connect.py` to check the outputs. This part works great!
 
 
 ## Integrating with Viam's app
