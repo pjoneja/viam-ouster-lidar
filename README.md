@@ -17,7 +17,11 @@ cd path/to/this/directory
 python3 -m pip install requirements.txt
 ```
 
-## Config on app.viam.com
+## Testing
+To test my work outside of Viam's app, I run `server.py` as a standalone gRPC server. At the same time, I separately run the client in `test/connect.py` to check that the outputs. This part works great!
+
+
+## Integrating with Viam's app
 Use this config on app.viam.com to run this demo. You may need to modify some paths.
 
 ```json
