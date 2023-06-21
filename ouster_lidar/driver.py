@@ -1,6 +1,8 @@
 from typing import Final, Iterable, Optional, Tuple
+from tempfile import NamedTemporaryFile
 
 import numpy as np
+import open3d as o3d
 from PIL import Image
 
 from ouster import client
@@ -36,7 +38,13 @@ class OusterLidar(Camera):
         xyz = self.xyz_lut(scan.field(client.ChanField.RANGE))
         pcd = o3d.geometry.PointCloud()  # type: ignore
         pcd.points = o3d.utility.Vector3dVector(xyz.reshape(-1, 3))  # type: ignore
-        return pcd, "what is the MIME type of a PCD???"
+        # open3d must write to a file, would be better if open3d had an option to dump the bytes and avoid a temp file
+        # https://github.com/isl-org/Open3D/issues/1560
+        with NamedTemporaryFile(mode="w+b", suffix=".pcd") as f:
+            o3d.io.write_point_cloud(f.name, pcd)
+            f.seek(0)
+            pcd_bytes = f.read()
+        return pcd_bytes, "pointcloud/pcd"
 
     async def get_properties(self, *, timeout: Optional[float] = None, **kwargs) -> Camera.Properties:
         pass

@@ -1,4 +1,5 @@
 import asyncio
+from tempfile import NamedTemporaryFile
 
 import numpy as np
 import open3d as o3d
@@ -32,9 +33,11 @@ async def _show_image(camera: Camera):
 async def _show_point_cloud(camera: Camera):
     """Shows a point cloud from the specified camera. Reusable for any supported Camera, e.g. mock or Ouster lidar"""
     pcd_bytes, _ = await camera.get_point_cloud()
-    with open("tmp.pcd", "wb") as f:
+    # open3d must read from a file, would be better if open3d had an option to directly read bytes and avoid a temp file
+    # https://github.com/isl-org/Open3D/issues/1560
+    with NamedTemporaryFile(mode="wb", suffix=".pcd") as f:
         f.write(pcd_bytes)
-    pcd = o3d.io.read_point_cloud("tmp.pcd")  # type: ignore
+        pcd = o3d.io.read_point_cloud(f.name)  # type: ignore
     points = np.asarray(pcd.points)
     print(points)
 

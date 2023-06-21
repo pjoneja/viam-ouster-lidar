@@ -25,7 +25,7 @@ class Simple(Camera):
         return self.image.copy()
 
     async def get_point_cloud(self, *, timeout: Optional[float] = None, **kwargs) -> Tuple[bytes, str]:
-        return self.pcd, "what is the MIME type of a PCD???"
+        return self.pcd, "pointcloud/pcd"
 
     async def get_properties(self, *, timeout: Optional[float] = None, **kwargs) -> Camera.Properties:
         pass
